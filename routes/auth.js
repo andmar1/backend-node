@@ -16,6 +16,5 @@ router.post( '/', loginUsuario );
 // Validar y revalidar token
 router.get( '/renew', revalidarToken);
 
-
 module.exports = router;
 
