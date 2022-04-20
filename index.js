@@ -8,6 +8,9 @@ require('dotenv').config(); //para agregar variables de entorno
 // Crear el servidor aplicacion de express 
 const app = express();
 
+//Directorio publico
+app.use(express.static('public'))    //directorio de carpeta public
+
 // Cors 
 app.use( cors() );
 
