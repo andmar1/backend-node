@@ -10,7 +10,7 @@ const crearUsuario = async(req,res = response ) => {
 
     try {
         //verificar que no existan correos iguales (verificar email)
-        let usuario = await Usuario.findOne({ email })
+        const usuario = await Usuario.findOne({ email })
 
         if ( usuario ) {
             return res.status(400).json({
@@ -18,11 +18,22 @@ const crearUsuario = async(req,res = response ) => {
                 msg:"El usuario con ese email ya existe"
             });
         }
+
+        //Crear usuario con em modelo
+        const dbUser = new Usuario( req.body );
         //Hashear la contraseña
-        
+
         //Generar el JSON WEB token, autenticacion 
 
+        // Crear uaurio de DB 
+        await dbUser.save()
+
         //Generar respuesta exitosa
+        return res.status(201).json({
+            ok:true,
+            uid:dbUser.id,
+            name
+        })
 
         
     } catch (error) {
