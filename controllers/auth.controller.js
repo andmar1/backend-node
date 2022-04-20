@@ -6,7 +6,7 @@ const crearUsuario = (req,res = response ) => {
     // crear el usuario 
     // console.log( req.body );
     const { email, name, password } = req.body;   //desestructurados
-    console.log(email,name,password)
+    // console.log(email,name,password)
     
     return res.json({
         ok:true,
