@@ -1,6 +1,7 @@
 // exportar response para que acepte el tipado 
 const { response } = require('express');
 const Usuario = require('../models/Usuario')
+const bcrypt = require('bcryptjs')  //para hash de password
 
 const crearUsuario = async(req,res = response ) => {
 
@@ -21,7 +22,10 @@ const crearUsuario = async(req,res = response ) => {
 
         //Crear usuario con em modelo
         const dbUser = new Usuario( req.body );
+
         //Hashear la contraseña
+        const salt = bcrypt.genSaltSync();
+        dbUser.password = bcrypt.hashSync( password, salt );
 
         //Generar el JSON WEB token, autenticacion 
 
