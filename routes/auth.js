@@ -3,6 +3,7 @@ const { Router } = require('express');
 const { check } = require('express-validator'); //validar campos obligatorios
 
 const { crearUsuario, loginUsuario, revalidarToken } = require('../controllers/auth.controller');
+const { validarCampos } = require('../middlewares/validar-campos');
 
 const router = Router();
 
@@ -13,6 +14,7 @@ router.post( '/new', [
     check('name','El nombre es obligatorio').not().isEmpty(),
     check('email', 'El email es obligatorio').isEmail(),
     check('password', 'La contraseña es obligatoria').isLength({ min:6 }),
+    validarCampos
 ] , crearUsuario);
 
 
@@ -20,6 +22,7 @@ router.post( '/new', [
 router.post( '/', [
     check('email', 'El email es obligatorio').isEmail(),
     check('password', 'La contraseña es obligatoria').isLength({ min:6 }),
+    validarCampos
 ] , loginUsuario );
 
 // Validar y revalidar token
