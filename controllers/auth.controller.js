@@ -1,5 +1,6 @@
 // exportar response para que acepte el tipado 
 const { response } = require('express');
+const { validationResult } = require('express-validator')
 
 const crearUsuario = (req,res = response ) => {
 
@@ -15,6 +16,15 @@ const crearUsuario = (req,res = response ) => {
 }
 
 const loginUsuario = (req,res = response)=>{
+
+    const errors = validationResult( req );
+
+    if (!errors.isEmpty()) {            //validar si el error no esta vacio
+        return res.status(400).json({   //retornar error 400
+            ok:false,                   //mal respuesta
+            msg:errors.mapped()         //mostrar los errores encontrados
+        });
+    }
 
     const { email, password } = req.body;   //desestructurados
     console.log(email, password)
