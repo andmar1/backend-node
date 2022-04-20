@@ -1,17 +1,40 @@
 // exportar response para que acepte el tipado 
 const { response } = require('express');
+const Usuario = require('../models/Usuario')
 
-const crearUsuario = (req,res = response ) => {
+const crearUsuario = async(req,res = response ) => {
 
     // crear el usuario 
     // console.log( req.body );
     const { email, name, password } = req.body;   //desestructurados
-    // console.log(email,name,password)
+
+    try {
+        //verificar que no existan correos iguales (verificar email)
+        let usuario = await Usuario.findOne({ email })
+
+        if ( usuario ) {
+            return res.status(400).json({
+                ok:false,
+                msg:"El usuario con ese email ya existe"
+            });
+        }
+        //Hashear la contraseña
+        
+        //Generar el JSON WEB token, autenticacion 
+
+        //Generar respuesta exitosa
+
+        
+    } catch (error) {
+        console.log( error )
+        return res.status(500).json({
+            ok:false,
+            msg:'Por favor hable con el administrador'
+        });
     
-    return res.json({
-        ok:true,
-        msg:'Crear usuario /new'
-    });
+    }    
+
+
 }
 
 const loginUsuario = (req,res = response)=>{
