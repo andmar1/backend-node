@@ -22,7 +22,7 @@ const crearUsuario = async(req,res = response ) => {
             });
         }
 
-        //Crear usuario con em modelo
+        //Crear usuario con el modelo
         const dbUser = new Usuario( req.body );
 
         //Hashear la contraseña
@@ -111,7 +111,6 @@ const revalidarToken = async (req,res=response)=>{
 
     //Generar el JSON WEB token, autenticacion 
     const token = await generarJWT(uid, name )
-
 
     return res.json({
         ok:true,
