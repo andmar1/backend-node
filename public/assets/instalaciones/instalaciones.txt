@@ -1,0 +1,3 @@
+mensaje de error
+
+npm install sweetalert2

@@ -1,0 +1,25 @@
+
+
+User mongo 
+
+correo:    alumno-clj8-724889@ieca.edu.mx
+user:      MEAN_USER
+password:  qUNuXOKzI0UvF6VI
+
+nombre de bd
+MiCluster 
+
+
+mogodbcompass
+
+cadena de conexion    mongodb+srv://tony_tolver:<password>@micluster.zpzfv.mongodb.net/test
+
+cadena                mongodb+srv://MEAN_USER:IdB6qDxjWRt8qPNB@micluster.zpzfv.mongodb.net/test
+
+
+MEAN_USER
+IdB6qDxjWRt8qPNB
+
+
+Tony Tolver
+alumno-clj8-724889@ieca.edu.mx
