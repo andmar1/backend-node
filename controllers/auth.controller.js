@@ -107,12 +107,11 @@ const loginUsuario = async(req,res = response)=>{
 
 const revalidarToken = (req,res=response)=>{
 
-    const token = req.header('x-token');    //header personalizado   x-token
 
     return res.json({
         ok:true,
         msg:'Renew',
-        token
+        
     });
 }
 
