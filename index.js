@@ -32,7 +32,7 @@ app.get('*', ( req, res = response )=>{
     res.sendFile( path.resolve( __dirname, 'public/index.html') ); //cargar proyecto de angular
 })
 
-
+//escuchar puerto
 app.listen( process.env.PORT, ()=>{
     console.log(`Servidor corriendo en puerto ${process.env.PORT}`)
 });
